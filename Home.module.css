@@ -1,0 +1,88 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+/* ── Live stream status badge ── */
+.streamStatusBadge {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 16px;
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.streamStatusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2ecc71;
+  animation: pulse 1.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ── Right-side control column (sits below Mapbox nav controls) ── */
+.mapControlGroup {
+  position: absolute;
+  top: 104px;
+  right: 10px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.mapControlButton {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: none;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.mapControlButton:first-child {
+  border-radius: 4px 4px 0 0;
+}
+
+.mapControlButton:last-child {
+  border-radius: 0 0 4px 4px;
+}
+
+.mapControlButton:hover {
+  background: #f0f0f0;
+}
+
+.activeButton {
+  background: #215db0;
+  color: #fff;
+}
+
+.activeButton:hover {
+  background: #1a4d94;
+}

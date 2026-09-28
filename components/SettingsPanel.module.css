@@ -1,0 +1,639 @@
+/* ── Settings panel overlay ── */
+.settingsOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.settingsPanel {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+  padding: 20px 24px;
+  width: 360px;
+  height: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.settingRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.settingLabel {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1c2127;
+}
+
+.settingDescription {
+  font-size: 11px;
+  color: #5f6b7c;
+  margin-top: 2px;
+}
+
+/* ── Toggle switch ── */
+.toggleSwitch {
+  position: relative;
+  width: 40px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.toggleSwitch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: #ccc;
+  border-radius: 22px;
+  transition: background 0.2s;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+
+.toggleSwitch input:checked + .slider {
+  background: #215db0;
+}
+
+.toggleSwitch input:checked + .slider::before {
+  transform: translateX(18px);
+}
+
+/* ── Close / done button ── */
+.settingsClose {
+  align-self: flex-end;
+  flex-shrink: 0;
+  padding: 6px 16px;
+  background: #215db0;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.settingsClose:hover {
+  background: #1a4d94;
+}
+
+/* ── Colour picker ── */
+.colorInput {
+  width: 36px;
+  height: 28px;
+  padding: 0;
+  border: 2px solid #d3d8de;
+  border-radius: 4px;
+  cursor: pointer;
+  background: none;
+  flex-shrink: 0;
+}
+
+.colorInput::-webkit-color-swatch-wrapper {
+  padding: 2px;
+}
+
+.colorInput::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.clearPinsButton {
+  padding: 6px 16px;
+  background: #cd4246;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.clearPinsButton:hover {
+  background: #ac2f33;
+}
+
+/* ── Tab bar ── */
+.tabBar {
+  display: flex;
+  flex-shrink: 0;
+  border-bottom: 2px solid #e1e4e8;
+  margin-bottom: 4px;
+}
+
+.tab {
+  flex: 1;
+  padding: 7px 0;
+  background: none;
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  color: #5f6b7c;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+}
+
+.tab:hover {
+  color: #1c2127;
+}
+
+.activeTab {
+  color: #215db0;
+  border-bottom-color: #215db0;
+}
+
+/* ── How to use content ── */
+.howToContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.howToSection {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.howToSectionTitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1c2127;
+  margin: 0;
+}
+
+.howToText {
+  font-size: 12px;
+  color: #5f6b7c;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.howToList {
+  font-size: 12px;
+  color: #5f6b7c;
+  line-height: 1.6;
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.code {
+  background: #f0f2f5;
+  border: 1px solid #dce0e6;
+  border-radius: 3px;
+  padding: 1px 4px;
+  font-family: monospace;
+  font-size: 11px;
+  color: #1c2127;
+}
+
+/* ── Dataset marker style section ── */
+.datasetSelect {
+  font-size: 12px;
+  padding: 4px 6px;
+  border: 1px solid #d3d8de;
+  border-radius: 4px;
+  background: #fff;
+  color: #1c2127;
+  cursor: pointer;
+  max-width: 160px;
+}
+
+.datasetSelect:focus {
+  outline: 2px solid #215db0;
+  outline-offset: 1px;
+}
+
+.emojiPreview {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.resetEmojiButton {
+  font-size: 11px;
+  padding: 3px 8px;
+  background: none;
+  border: 1px solid #d3d8de;
+  border-radius: 4px;
+  color: #5f6b7c;
+  cursor: pointer;
+}
+
+.resetEmojiButton:hover {
+  background: #f0f2f5;
+  color: #1c2127;
+}
+
+/* ── Emoji picker trigger button ── */
+.emojiPickerToggle {
+  font-size: 11px;
+  padding: 3px 8px;
+  background: #215db0;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.emojiPickerToggle:hover {
+  background: #1a4d94;
+}
+
+/* ── Emoji picker container ── */
+.emojiPickerWrapper {
+  margin-top: 4px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* ── Collapsible section accordion ── */
+.accordionSection {
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  overflow: visible;
+  flex-shrink: 0;
+}
+
+.accordionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 12px;
+  background: #f6f7f9;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1c2127;
+  transition: background 0.15s;
+}
+
+.accordionHeader:hover {
+  background: #edeff2;
+}
+
+.accordionHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.accordionIcon {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.accordionChevron {
+  font-size: 10px;
+  color: #5f6b7c;
+  transition: transform 0.2s ease;
+}
+
+.accordionChevronOpen {
+  transform: rotate(180deg);
+}
+
+.accordionBody {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+  border-top: 1px solid #e1e4e8;
+}
+
+.settingsScrollArea {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 2px;
+}
+
+/* ── Imported datasets list ── */
+.datasetListEmpty {
+  font-size: 12px;
+  color: #8a9199;
+  font-style: italic;
+  text-align: center;
+  padding: 8px 0;
+}
+
+/* ── Base map style picker (horizontal scroll strip) ── */
+.baseMapStrip {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 4px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.baseMapStrip::-webkit-scrollbar {
+  height: 4px;
+}
+
+.baseMapStrip::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.baseMapStrip::-webkit-scrollbar-thumb {
+  background: #d3d8de;
+  border-radius: 2px;
+}
+
+.baseMapCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  background: none;
+  border: 2px solid #e1e4e8;
+  border-radius: 6px;
+  cursor: pointer;
+  flex-shrink: 0;
+  overflow: hidden;
+  scroll-snap-align: start;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.baseMapCard:hover {
+  border-color: #a3b1c0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.baseMapCardActive {
+  border-color: #215db0;
+  box-shadow: 0 0 0 1px #215db0;
+}
+
+.baseMapCardActive:hover {
+  border-color: #215db0;
+}
+
+.baseMapThumb {
+  display: block;
+  width: 88px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 4px 4px 0 0;
+}
+
+.baseMapCardLabel {
+  font-size: 10px;
+  font-weight: 600;
+  color: #1c2127;
+  padding: 3px 6px 4px;
+  white-space: nowrap;
+}
+
+/* ── Property toggle list (popup visibility) ── */
+.propertySectionDivider {
+  border: none;
+  border-top: 1px solid #e1e4e8;
+  margin: 0;
+}
+
+.propertyToggleList {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-height: 160px;
+  overflow-y: auto;
+  padding-right: 2px;
+}
+
+.propertyToggleRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  color: #1c2127;
+  transition: background 0.1s;
+}
+
+.propertyToggleRow:hover {
+  background: #f6f7f9;
+}
+
+.propertyCheckbox {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  accent-color: #215db0;
+  cursor: pointer;
+}
+
+.propertyName {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.titleBadge {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #215db0;
+  background: #e8f0fe;
+  border-radius: 3px;
+  padding: 1px 5px;
+  flex-shrink: 0;
+}
+
+/* ── Media Set Boundaries styling ── */
+.msColorModeRow {
+  display: flex;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.msColorModeButton {
+  flex: 1;
+  padding: 5px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid #d3d8de;
+  border-radius: 4px;
+  background: #fff;
+  color: #5f6b7c;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.msColorModeButton:hover {
+  background: #f6f7f9;
+  color: #1c2127;
+}
+
+.msColorModeActive {
+  background: #215db0;
+  border-color: #215db0;
+  color: #fff;
+}
+
+.msColorModeActive:hover {
+  background: #1a4d94;
+  border-color: #1a4d94;
+  color: #fff;
+}
+
+.msValueColorList {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  max-height: 180px;
+  overflow-y: auto;
+  padding-right: 2px;
+}
+
+.msValueColorRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.msValueColorRow:hover {
+  background: #f6f7f9;
+}
+
+.msValueSwatch {
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 1px solid #d3d8de;
+  border-radius: 3px;
+  cursor: pointer;
+  background: none;
+  flex-shrink: 0;
+}
+
+.msValueSwatch::-webkit-color-swatch-wrapper {
+  padding: 1px;
+}
+
+.msValueSwatch::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.msValueLabel {
+  font-size: 11px;
+  color: #1c2127;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.msSliderGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.msSlider {
+  width: 100px;
+  height: 4px;
+  accent-color: #215db0;
+  cursor: pointer;
+}
+
+.msSliderValue {
+  font-size: 11px;
+  font-weight: 600;
+  color: #5f6b7c;
+  min-width: 32px;
+  text-align: right;
+}
+
+/* ── Stream rows ── */
+.streamRow {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  background: #fafbfc;
+}
+
+.streamRowHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.streamRowNameGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.streamRowName {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1c2127;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.streamRowMeta {
+  font-size: 10px;
+  color: #8a9199;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
